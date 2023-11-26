@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import { loginPage } from "../pages/LoginPage"
+
+Cypress.Commands.add('login', (email, password) => {
+    cy.visit('/')
+    cy.url().should('contain', '/signin')
+    cy.getCookie('ghost-admin-api-session').should('not.exist')
+
+    loginPage.fillEmailAddress(Cypress.env('email_address'))
+    loginPage.fillPassword(Cypress.env('password'))
+    loginPage.submitLogin()
+
+    cy.url().should('contain', '/dashboard')
+    cy.getCookie('ghost-admin-api-session').should('exist')
+})
