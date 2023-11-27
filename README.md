@@ -10,7 +10,7 @@
 - ghost-cli >= 1.25.3
 - yarn
 
-# Instrucciones para ejecutar Ghost
+# Instrucciones para ejecutar Ghost (usando folder provisto en este repositorio)
 Con el fin de realizar las pruebas sobre una misma versión de Ghost, y con los mismos datos por defecto, en el directorio `ghost` se encuentra instalada la versión 5.68.0 de esta aplicación.
 
 Dado que las carpetas `node_modules` son ignoradas en el repositorio, el primer paso que debemos dar para ejecutarla es instalar sus dependencias. Desde la raíz de este repositorio ejecutar los siguientes comandos, en el orden en el que se muestran.
@@ -32,7 +32,7 @@ Una vez terminemos de usar la aplicación, podemos detenerla ejecutando
 $ ghost stop
 ```
 
-# GHOST desplegado en docker
+# Ejecutar GHOST usando docker
 
 ### Recomendable si las instrucciones para ejecutar ghost no funcionan debido a algún error imprevisto. 
 
@@ -48,32 +48,6 @@ docker run -d --name zeta-halo -e NODE_ENV=development -e url=http://localhost:2
 Al momento de ejecutar nuestros tests para GHOST 5.68.0 lo podemos conseguir
 mediante la ejecución de los tests.
 
-# Instrucciones para ejecutar las pruebas con Cypress (Pool A-priori)
-
-## Setup cypress-gherkin
-
-- Entrar a la carpeta `cypress-gherkin`
-- Ejecutar
-
-```shell
-npm install
-```
-
-## Setup cypress (contiene otros test cases escritos sin gherkin)
-
-- Entrar a la carpeta `cypress`
-- Ejecutar
-
-```shell
-npm install
-```
-
-## Lanzar cypress
-
-```shell
-npx cypress open --e2e --browser chrome
-```
-
 # Instrucciones para ejecutar las pruebas con Cypress (Pool (pseudo) aleatorio)
 Dado que las carpetas `node_modules` son ignoradas en el repositorio, el primer paso que debemos dar para ejecutar 'cypress' es instalar sus dependencias. Desde la raíz de este repositorio ejecutar los siguientes comandos, en el orden en el que se muestran.
 ``` bash
@@ -84,6 +58,23 @@ $ npm install   # Instalamos las dependencias
 Luego de instaladas las dependencias, procedemos a ejecutar las pruebas con el siguiente comando.
 ```bash
 $ npx cypress run --spec cypress/e2e/*
+```
+
+# Instrucciones para ejecutar las pruebas con Cypress+Gherkin (Pool A-priori)
+
+## Setup cypress-gherkin
+
+- Entrar a la carpeta `cypress-gherkin`
+- Ejecutar
+
+```shell
+npm install
+```
+
+## Lanzar cypress
+
+```shell
+npx cypress open --e2e --browser chrome
 ```
 
 # Instrucciones para ejecutar las pruebas con Kraken
