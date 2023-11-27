@@ -25,7 +25,7 @@ class PageEditorPage {
     }
 
     clickScheduleLater() {
-        cy.get('button[data-test-setting-title]').click()
+        cy.get('[data-test-setting="publish-at"]').click()
         cy.get('[data-test-radio="schedule"]').parent().click()
     }
 
