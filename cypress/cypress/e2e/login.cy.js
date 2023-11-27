@@ -3,16 +3,7 @@ import { faker } from '@faker-js/faker'
 
 describe('Página de login', () => {
   it('1 - Login exitoso', () => {
-    cy.visit('/')
-    cy.url().should('contain', '/signin')
-    cy.getCookie('ghost-admin-api-session').should('not.exist')
-
-    loginPage.fillEmailAddress(Cypress.env('email_address'))
-    loginPage.fillPassword(Cypress.env('password'))
-    loginPage.submitLogin()
-
-    cy.url().should('contain', '/dashboard')
-    cy.getCookie('ghost-admin-api-session').should('exist')
+    cy.login(Cypress.env('email_adress'), Cypress.env('password'))
   })
 
   it('2 - Login fallido - formulario vacio', () => {
