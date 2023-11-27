@@ -1,7 +1,7 @@
 import { loginPage } from "../pages/LoginPage"
 import { faker } from '@faker-js/faker'
 
-describe('Página de login', () => {
+describe('Login', () => {
   it('1 - Login exitoso', () => {
     cy.login(Cypress.env('email_adress'), Cypress.env('password'))
   })
