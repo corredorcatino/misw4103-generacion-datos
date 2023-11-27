@@ -59,15 +59,6 @@ mediante la ejecución de los tests.
 npm install
 ```
 
-## Setup cypress (contiene otros test cases escritos sin gherkin)
-
-- Entrar a la carpeta `cypress`
-- Ejecutar
-
-```shell
-npm install
-```
-
 ## Lanzar cypress
 
 ```shell
