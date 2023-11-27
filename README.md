@@ -33,7 +33,33 @@ $ ghost stop
 ```
 
 # Instrucciones para ejecutar las pruebas con Cypress
-[//]: # (Añadir instrucciones para ejecutar las pruebas con Cypress)
+## Setup cypress-gherkin
+- Entrar a la carpeta `cypress`
+- Ejecutar
+    ```shell
+    npm install
+    ```
+## Iniciar cypress
+Alternativa #1
+```shell
+npx cypress-gherkin open --e2e --browser chrome
+```
+
+Alternativa #2
+```shell
+npm run cypress-gherkin:runner
+```
+
+## Ejecutar tests sobre GHOST desplegado en docker
+Se ha de traer ghost arriba con el siguiente comando (comprobado para fedora linux)
+
+```bash
+docker rm -f $(docker ps -qa) && \
+docker run -d --name some-ghost -e NODE_ENV=development -e url=http://localhost:2368 -p 2368:2368 ghost:5.68.0
+```
+
+Al momento de ejecutar nuestros tests para GHOST 5.68.0 lo podemos conseguir
+mediante la ejecución de todos los tests.
 
 # Instrucciones para ejecutar las pruebas con Kraken
 [//]: # (Añadir instrucciones para ejecutar las pruebas con Kraken)
