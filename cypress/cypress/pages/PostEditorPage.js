@@ -1,4 +1,4 @@
-class PageEditorPage {
+class PostEditorPage {
 
     fillTitle(title) {
         cy.get('textarea[data-test-editor-title-input]').type(title)
@@ -20,24 +20,20 @@ class PageEditorPage {
         cy.get('[data-test-button="confirm-publish"]').click()
     }
 
-    clickUpdatePageButton() {
-        cy.get('[data-test-button="publish-save"]').click()
-    }
-
     clickScheduleLater() {
         cy.get('[data-test-setting="publish-at"]').click()
         cy.get('[data-test-radio="schedule"]').parent().click()
     }
 
-    returnToPagesList() {
-        cy.get('a[data-test-link="pages"]').click()
+    returnToPostsList() {
+        cy.get('a[data-test-link="posts"]').click()
     }
 
     returnToEditor() {
         cy.get('button[data-test-button="close-publish-flow"]').click()
     }
 
-    openPageSettings() {
+    togglePostSettings() {
         cy.get('button[data-test-psm-trigger]').click()
     }
 
@@ -47,4 +43,4 @@ class PageEditorPage {
     }
 }
 
-export const pageEditorPage = new PageEditorPage();
+export const postEditorPage = new PostEditorPage();

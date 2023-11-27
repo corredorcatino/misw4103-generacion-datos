@@ -141,4 +141,28 @@ describe('Pages', () => {
 
     pagesListPage.doesNotExists(title)
   })
+
+  it('8 - Eliminar página publicada', () => {
+    const title = faker.lorem.sentence({ min: 2, max: 4 })
+    const content = faker.lorem.paragraphs({ min: 2, max: 4 })
+
+    pagesListPage.clickNewPageButton()
+    pageEditorPage.fillTitle(title)
+    pageEditorPage.fillContent(content)
+    cy.wait(ONE_SECOND)
+    pageEditorPage.clickPublishButton()
+    pageEditorPage.clickContinueButton()
+    pageEditorPage.clickConfirmPublishButton()
+    cy.wait(ONE_SECOND)
+    pageEditorPage.returnToEditor()
+    pageEditorPage.returnToPagesList()
+    pagesListPage.filterByPublished()
+
+    pagesListPage.doesPageExists(title)
+    pagesListPage.rightClickOnPage(title)
+    pagesListPage.clickOnDelete()
+    pagesListPage.confirmDeletion()
+
+    pagesListPage.doesNotExists(title)
+  })
 })
