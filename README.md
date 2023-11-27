@@ -80,6 +80,6 @@ npx cypress open --e2e --browser chrome
 # Instrucciones para ejecutar las pruebas con Kraken
 
 - Entrar a la carpeta kraken
-- Ejecutar `npm install``
+- Ejecutar ```npm install``
 - Las pruebas tienen definido que se usara el puerto `2368` para ghost, si se cambia se tendría que modificar en los test.
 - Para correr los test `./node_modules/kraken-node/bin/kraken-node run`
