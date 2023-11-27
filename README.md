@@ -23,13 +23,55 @@ $ ghost start      # Ejecutamos la aplicación
 
 Ghost está configurado para ejecutarse localmente en el puerto `2368`. Para probar que la aplicación se está ejecutando, desde un navegador web visitamos la siguiente dirección `http://localhost:2368/ghost`, e ingresamos las siguientes credenciales:
 
-| email                         | password       |
-|:--------------------------------:|:--------------:|
+|               email                |    password    |
+|:----------------------------------:|:--------------:|
 | admin@thesoftwaredesigncompany.com | Contraseña123# |
 
 Una vez terminemos de usar la aplicación, podemos detenerla ejecutando
 ```
 $ ghost stop
+```
+
+# GHOST desplegado en docker
+
+### Recomendable si las instrucciones para ejecutar ghost no funcionan debido a algún error imprevisto. 
+
+Se ha de traer ghost arriba con el siguiente comando
+
+```bash
+docker rm -f $(docker ps -qa) && \
+docker run -d --name zeta-halo -e NODE_ENV=development -e url=http://localhost:2368 -p 2368:2368 ghost:5.68.0
+```
+
+- Se ingresan las credenciales mostradas en la seccion anterior.
+
+Al momento de ejecutar nuestros tests para GHOST 5.68.0 lo podemos conseguir
+mediante la ejecución de los tests.
+
+# Instrucciones para ejecutar las pruebas con Cypress (Pool A-priori)
+
+## Setup cypress-gherkin
+
+- Entrar a la carpeta `cypress-gherkin`
+- Ejecutar
+
+```shell
+npm install
+```
+
+## Setup cypress (contiene otros test cases escritos sin gherkin)
+
+- Entrar a la carpeta `cypress`
+- Ejecutar
+
+```shell
+npm install
+```
+
+## Lanzar cypress
+
+```shell
+npx cypress open --e2e --browser chrome
 ```
 
 # Instrucciones para ejecutar las pruebas con Cypress (Pool (pseudo) aleatorio)
@@ -45,4 +87,5 @@ $ npx cypress run --spec cypress/e2e/*
 ```
 
 # Instrucciones para ejecutar las pruebas con Kraken
+
 [//]: # (Añadir instrucciones para ejecutar las pruebas con Kraken)
